@@ -72,10 +72,10 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vmo-fy-1W6">
-                                                                <rect key="frame" x="307" y="8" width="60" height="21"/>
+                                                                <rect key="frame" x="287" y="8" width="80" height="21"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="21" id="Ptb-yL-HX6"/>
-                                                                    <constraint firstAttribute="width" constant="60" id="cUz-T5-Ba1"/>
+                                                                    <constraint firstAttribute="width" constant="80" id="cUz-T5-Ba1"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
                                                                 <state key="normal" title="More"/>
@@ -93,38 +93,53 @@
                                                                             <constraint firstAttribute="height" constant="55" id="FPC-Rm-kc3"/>
                                                                             <constraint firstAttribute="width" constant="55" id="zGu-Z9-cyw"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="topPickButtonTapped:" destination="JvU-v8-NXT" eventType="touchUpInside" id="IAp-x2-4Zg"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OU4-Pb-z26" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OU4-Pb-z26" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
                                                                         <rect key="frame" x="75.666666666666657" y="0.0" width="55" height="55"/>
                                                                         <color key="backgroundColor" name="BlueButton"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="55" id="58w-Z2-G3W"/>
                                                                             <constraint firstAttribute="width" constant="55" id="ahJ-WH-JIY"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="topPickButtonTapped:" destination="JvU-v8-NXT" eventType="touchUpInside" id="6fN-pq-0Zr"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-jh-vLy" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Tf-jh-vLy" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
                                                                         <rect key="frame" x="151.33333333333334" y="0.0" width="55" height="55"/>
                                                                         <color key="backgroundColor" name="BlueButton"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="55" id="L96-mD-nAB"/>
                                                                             <constraint firstAttribute="width" constant="55" id="d0W-eK-Pq6"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="topPickButtonTapped:" destination="JvU-v8-NXT" eventType="touchUpInside" id="6Xn-5e-mUV"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZc-mG-Yb5" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oZc-mG-Yb5" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
                                                                         <rect key="frame" x="227" y="0.0" width="55" height="55"/>
                                                                         <color key="backgroundColor" name="BlueButton"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="55" id="4cc-7o-M32"/>
                                                                             <constraint firstAttribute="height" constant="55" id="sSh-bR-sUu"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="topPickButtonTapped:" destination="JvU-v8-NXT" eventType="touchUpInside" id="UeI-yN-etl"/>
+                                                                        </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LK-BK-2zu" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
+                                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LK-BK-2zu" customClass="CustomButton" customModule="Breww" customModuleProvider="target">
                                                                         <rect key="frame" x="302.66666666666663" y="0.0" width="55" height="55"/>
                                                                         <color key="backgroundColor" name="BlueButton"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="55" id="I1P-ya-tY9"/>
                                                                             <constraint firstAttribute="width" constant="55" id="pAh-Yn-wi4"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <action selector="topPickButtonTapped:" destination="JvU-v8-NXT" eventType="touchUpInside" id="FLN-Nc-4Y0"/>
+                                                                        </connections>
                                                                     </button>
                                                                 </subviews>
                                                                 <constraints>
@@ -214,6 +229,7 @@
                         <outlet property="topPickStackView" destination="fKl-cU-5jR" id="vkl-GT-SE1"/>
                         <outlet property="topPicksStackViewWidthConstraint" destination="c67-Bm-YyG" id="FnO-OJ-cVe"/>
                         <outlet property="topPicksView" destination="Wsa-nC-xCQ" id="Bnb-f4-iqe"/>
+                        <outlet property="topPicksViewExpandButton" destination="Vmo-fy-1W6" id="H1S-00-lSq"/>
                         <outlet property="topPicksViewHeightConstraint" destination="WZN-uK-3AM" id="efL-CS-VDK"/>
                     </connections>
                 </viewController>

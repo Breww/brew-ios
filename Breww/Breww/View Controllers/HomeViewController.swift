@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var topPickStackView: UIStackView!
     @IBOutlet weak var topPicksViewHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var topPicksStackViewWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topPicksViewExpandButton: UIButton!
     
     @IBOutlet weak var catalogueView: UIView!
     
@@ -47,7 +48,11 @@ class HomeViewController: UIViewController {
         topPicksView.layer.shadowOpacity = 0.2
         topPicksView.layer.shadowColor = UIColor.black.cgColor
     }
-
+    
+    @IBAction func topPickButtonTapped(_ sender: CustomButton) {
+        print(sender.tag)
+    }
+    
     @IBAction func expandButtonTapped(_ sender: UIButton) {
         if isHorizontalStack {
             topPicksViewHeightConstraint.constant = 426
@@ -55,20 +60,20 @@ class HomeViewController: UIViewController {
             topPickStackView.axis = .vertical
             topPickStackView.distribution = .fillEqually
             topPickStackView.spacing = 20
-            catalogueView.isHidden = true
+//            catalogueView.isHidden = true
         } else {
             topPicksViewHeightConstraint.constant = 126
             topPicksStackViewWidthConstraint.constant = UIScreen.main.bounds.width - 16
             topPickStackView.axis = .horizontal
             topPickStackView.distribution = .equalSpacing
             topPickStackView.spacing = 0
-            catalogueView.isHidden = false
+//            catalogueView.isHidden = false
         }
         
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         }) { _ in
-            //
+//            self.topPicksViewExpandButton.titleLabel?.text = self.isHorizontalStack ? "More" : "Close"
         }
     }
 }
