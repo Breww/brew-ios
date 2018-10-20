@@ -7,5 +7,7 @@ target 'Breww' do
 
   # Pods for Breww
   pod 'AlgoliaSearch-Client-Swift'
+  pod 'Firebase/Core'
+  pod 'Firebase/Firestore'
   
 end
