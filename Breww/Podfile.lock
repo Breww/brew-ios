@@ -1,0 +1,16 @@
+PODS:
+  - AlgoliaSearch-Client-Swift (5.1.7)
+
+DEPENDENCIES:
+  - AlgoliaSearch-Client-Swift
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AlgoliaSearch-Client-Swift
+
+SPEC CHECKSUMS:
+  AlgoliaSearch-Client-Swift: 13f8abe012615ed3ccc35dc61ce0401a191be0ff
+
+PODFILE CHECKSUM: 55a437e175c790120b133ae73b2ad69bf713c36d
+
+COCOAPODS: 1.5.3
