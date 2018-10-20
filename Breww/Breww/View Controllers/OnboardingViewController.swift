@@ -35,6 +35,11 @@ class OnboardingViewController: UIViewController, UICollectionViewDelegate, UICo
             if error != nil {
                 print(error.debugDescription)
             }
+            
+            let storyboard = UIStoryboard(name: "Core", bundle: nil)
+            let rootViewController = storyboard.instantiateViewController(withIdentifier: "Core")
+            
+            self.present(rootViewController, animated: true, completion: nil)
         }
     }
     

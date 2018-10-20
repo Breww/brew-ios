@@ -24,6 +24,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         settings.areTimestampsInSnapshotsEnabled = true
         db.settings = settings
         
+        let rootViewController: UIViewController
+        
+        if Device.hasID() {
+            let storyboard = UIStoryboard(name: "Core", bundle: nil)
+            rootViewController = storyboard.instantiateViewController(withIdentifier: "Core")
+        } else {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            rootViewController = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardingViewController
+        }
+        
+        if let window = self.window {
+            window.rootViewController = rootViewController
+        }
+        
         return true
     }
 
