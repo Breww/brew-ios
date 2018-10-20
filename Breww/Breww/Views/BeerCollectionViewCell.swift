@@ -12,11 +12,23 @@ class BeerCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var styleLabel: UILabel!
+    @IBOutlet weak var ratingImage: UIImageView!
     
     func formatCell(forBeer beer: Beer) {
         imageView.image = beer.primaryImage
         nameLabel.text = beer.name
         styleLabel.text = beer.style
+        
+        DispatchQueue.main.async {
+            if beer.positiveRating {
+                self.ratingImage.tintColor = UIColor(named: "PositiveColor")
+                self.ratingImage.image = UIImage(named: "ThumbsUp")
+            } else {
+                self.ratingImage.tintColor = UIColor(named: "RightGradient")
+                self.ratingImage.image = UIImage(named: "ThumbsDown")
+            }
+        }
+        
         
         layer.cornerRadius = 8
         layer.borderWidth = 1

@@ -9,5 +9,6 @@ target 'Breww' do
   pod 'AlgoliaSearch-Client-Swift'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'ALCameraViewController'
   
 end

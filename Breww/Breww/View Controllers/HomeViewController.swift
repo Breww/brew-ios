@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         return topPickStackView.axis == .horizontal
     }
     
-    private var scannedBeers: [Beer] = [Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true), Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true), Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true)]
+    private var scannedBeers: [Beer] = [Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true), Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: false), Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true)]
     private var recommendedBeers: [Beer] = []
     
     override func viewDidLoad() {

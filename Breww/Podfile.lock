@@ -1,4 +1,5 @@
 PODS:
+  - ALCameraViewController (3.0.3)
   - AlgoliaSearch-Client-Swift (5.1.7)
   - BoringSSL (10.0.6):
     - BoringSSL/Implementation (= 10.0.6)
@@ -106,12 +107,14 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
+  - ALCameraViewController
   - AlgoliaSearch-Client-Swift
   - Firebase/Core
   - Firebase/Firestore
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - ALCameraViewController
     - AlgoliaSearch-Client-Swift
     - BoringSSL
     - Firebase
@@ -132,6 +135,7 @@ SPEC REPOS:
     - Protobuf
 
 SPEC CHECKSUMS:
+  ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
   AlgoliaSearch-Client-Swift: 13f8abe012615ed3ccc35dc61ce0401a191be0ff
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
   Firebase: a870ed114d769b424021a0c8ddb0c86c3250a0c5
@@ -151,6 +155,6 @@ SPEC CHECKSUMS:
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: a1644655df4824576585aca2afe359559933b624
+PODFILE CHECKSUM: 8bb9d2bee9afca619c2e237c8f54f5dd708ce0a8
 
 COCOAPODS: 1.5.3
