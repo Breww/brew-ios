@@ -28,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         if Device.hasID() {
             let storyboard = UIStoryboard(name: "Core", bundle: nil)
-            rootViewController = storyboard.instantiateViewController(withIdentifier: "Core")
+            rootViewController = storyboard.instantiateViewController(withIdentifier: "Core") as! HomeViewController
         } else {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             rootViewController = storyboard.instantiateViewController(withIdentifier: "Onboard") as! OnboardingViewController

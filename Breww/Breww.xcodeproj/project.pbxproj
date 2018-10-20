@@ -12,7 +12,10 @@
 		271D8394217AC26500603DE6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271D8392217AC26500603DE6 /* Main.storyboard */; };
 		271D8396217AC26600603DE6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 271D8395217AC26600603DE6 /* Assets.xcassets */; };
 		271D8399217AC26600603DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271D8397217AC26600603DE6 /* LaunchScreen.storyboard */; };
+		271E186E217BA6E90034D519 /* BeerRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E186D217BA6E90034D519 /* BeerRowTableViewCell.swift */; };
 		2769A0C3217B764D0048CDC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C2217B764D0048CDC5 /* HomeViewController.swift */; };
+		2769A0C5217B8E030048CDC5 /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */; };
+		2769A0C7217B8EF60048CDC5 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C6217B8EF60048CDC5 /* Beer.swift */; };
 		27E2C0BD217AD26D00A073B9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E2C0BC217AD26D00A073B9 /* OnboardingViewController.swift */; };
 		27E2C0BF217AD2E700A073B9 /* SelectionCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E2C0BE217AD2E700A073B9 /* SelectionCollectionViewCell.swift */; };
 		27E2C0C2217AE65E00A073B9 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E2C0C1217AE65E00A073B9 /* Colors.xcassets */; };
@@ -30,7 +33,10 @@
 		271D8395217AC26600603DE6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		271D8398217AC26600603DE6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		271D839A217AC26600603DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		271E186D217BA6E90034D519 /* BeerRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRowTableViewCell.swift; sourceTree = "<group>"; };
 		2769A0C2217B764D0048CDC5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
+		2769A0C6217B8EF60048CDC5 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
 		27E2C0BC217AD26D00A073B9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		27E2C0BE217AD2E700A073B9 /* SelectionCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionCollectionViewCell.swift; sourceTree = "<group>"; };
 		27E2C0C1217AE65E00A073B9 /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
@@ -78,12 +84,21 @@
 				27F3FC4F217AD1A900F3C77F /* View Controllers */,
 				27F3FC50217AD1B200F3C77F /* Views */,
 				27E2C0C5217AED7900A073B9 /* Client */,
+				2769A0C8217B8EFF0048CDC5 /* Model */,
 				27F3FC4E217AD19800F3C77F /* Supporting Files */,
 				27E2C0C0217AE64A00A073B9 /* Assets */,
 				271D839A217AC26600603DE6 /* Info.plist */,
 				27F3FC4C217AD19100F3C77F /* GoogleService-Info.plist */,
 			);
 			path = Breww;
+			sourceTree = "<group>";
+		};
+		2769A0C8217B8EFF0048CDC5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2769A0C6217B8EF60048CDC5 /* Beer.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		27E2C0C0217AE64A00A073B9 /* Assets */ = {
@@ -127,6 +142,8 @@
 				271D8392217AC26500603DE6 /* Main.storyboard */,
 				27E2C0C6217AF37000A073B9 /* Core.storyboard */,
 				27E2C0BE217AD2E700A073B9 /* SelectionCollectionViewCell.swift */,
+				2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */,
+				271E186D217BA6E90034D519 /* BeerRowTableViewCell.swift */,
 				27E2C0C8217AFBF500A073B9 /* GradientView.swift */,
 			);
 			path = Views;
@@ -286,9 +303,12 @@
 			files = (
 				27E2C0BD217AD26D00A073B9 /* OnboardingViewController.swift in Sources */,
 				27E2C0BF217AD2E700A073B9 /* SelectionCollectionViewCell.swift in Sources */,
+				2769A0C5217B8E030048CDC5 /* BeerCollectionViewCell.swift in Sources */,
+				2769A0C7217B8EF60048CDC5 /* Beer.swift in Sources */,
 				27E2C0C9217AFBF500A073B9 /* GradientView.swift in Sources */,
 				271D838F217AC26500603DE6 /* AppDelegate.swift in Sources */,
 				27E2C0C4217AED7300A073B9 /* Device.swift in Sources */,
+				271E186E217BA6E90034D519 /* BeerRowTableViewCell.swift in Sources */,
 				2769A0C3217B764D0048CDC5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
