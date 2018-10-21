@@ -16,6 +16,8 @@
 		271E1870217BC0580034D519 /* NewBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E186F217BC0580034D519 /* NewBeerViewController.swift */; };
 		2735EFAE217BEE870016BEAF /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735EFAD217BEE870016BEAF /* DetailsTableViewCell.swift */; };
 		2735EFB0217BF5990016BEAF /* AutocompleteFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735EFAF217BF5990016BEAF /* AutocompleteFetcher.swift */; };
+		2735EFB2217C0ADC0016BEAF /* UserRecommendationsFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735EFB1217C0ADC0016BEAF /* UserRecommendationsFetcher.swift */; };
+		2735EFB4217C20CC0016BEAF /* BeerFromURLFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735EFB3217C20CC0016BEAF /* BeerFromURLFetcher.swift */; };
 		2769A0C3217B764D0048CDC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C2217B764D0048CDC5 /* HomeViewController.swift */; };
 		2769A0C5217B8E030048CDC5 /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */; };
 		2769A0C7217B8EF60048CDC5 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C6217B8EF60048CDC5 /* Beer.swift */; };
@@ -40,6 +42,8 @@
 		271E186F217BC0580034D519 /* NewBeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBeerViewController.swift; sourceTree = "<group>"; };
 		2735EFAD217BEE870016BEAF /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
 		2735EFAF217BF5990016BEAF /* AutocompleteFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteFetcher.swift; sourceTree = "<group>"; };
+		2735EFB1217C0ADC0016BEAF /* UserRecommendationsFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRecommendationsFetcher.swift; sourceTree = "<group>"; };
+		2735EFB3217C20CC0016BEAF /* BeerFromURLFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerFromURLFetcher.swift; sourceTree = "<group>"; };
 		2769A0C2217B764D0048CDC5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2769A0C6217B8EF60048CDC5 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
@@ -121,6 +125,8 @@
 			children = (
 				27E2C0C3217AED7300A073B9 /* Device.swift */,
 				2735EFAF217BF5990016BEAF /* AutocompleteFetcher.swift */,
+				2735EFB1217C0ADC0016BEAF /* UserRecommendationsFetcher.swift */,
+				2735EFB3217C20CC0016BEAF /* BeerFromURLFetcher.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -258,7 +264,9 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlgoliaSearch-Client-Swift/AlgoliaSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -276,7 +284,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlgoliaSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -321,6 +331,7 @@
 				27E2C0BD217AD26D00A073B9 /* OnboardingViewController.swift in Sources */,
 				27E2C0BF217AD2E700A073B9 /* SelectionCollectionViewCell.swift in Sources */,
 				2769A0C5217B8E030048CDC5 /* BeerCollectionViewCell.swift in Sources */,
+				2735EFB4217C20CC0016BEAF /* BeerFromURLFetcher.swift in Sources */,
 				2769A0C7217B8EF60048CDC5 /* Beer.swift in Sources */,
 				27E2C0C9217AFBF500A073B9 /* GradientView.swift in Sources */,
 				2735EFAE217BEE870016BEAF /* DetailsTableViewCell.swift in Sources */,
@@ -329,6 +340,7 @@
 				271E186E217BA6E90034D519 /* BeerRowTableViewCell.swift in Sources */,
 				2769A0C3217B764D0048CDC5 /* HomeViewController.swift in Sources */,
 				271E1870217BC0580034D519 /* NewBeerViewController.swift in Sources */,
+				2735EFB2217C0ADC0016BEAF /* UserRecommendationsFetcher.swift in Sources */,
 				2735EFB0217BF5990016BEAF /* AutocompleteFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

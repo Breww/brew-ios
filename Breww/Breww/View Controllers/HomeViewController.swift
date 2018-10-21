@@ -46,6 +46,16 @@ class HomeViewController: UIViewController {
         setupViewElements()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+//        UserRecommendationsFetcher.getUserRecommendations { beers in
+//            guard let beers = beers else { return }
+//            
+//            
+//        }
+    }
+    
     private func setupViewElements() {
         for button in topPickStackView.arrangedSubviews {
             button.layer.cornerRadius = 8

@@ -9,6 +9,8 @@
 import UIKit
 import ALCameraViewController
 import SearchTextField
+import FirebaseStorage
+import JGProgressHUD
 
 class NewBeerViewController: UIViewController {
 
@@ -19,6 +21,8 @@ class NewBeerViewController: UIViewController {
     @IBOutlet weak var detailsTableView: UITableView!
     
     var queriedBeers: [Beer] = []
+    
+    let hud = JGProgressHUD(style: .dark)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +53,8 @@ class NewBeerViewController: UIViewController {
     }
     
     private func setupUIElements() {
+        hud.textLabel.text = "Searching..."
+        
         scannedImageView.isHidden = true
         
         addImageButton.imageView?.contentMode = .scaleAspectFit
@@ -70,14 +76,58 @@ class NewBeerViewController: UIViewController {
     @IBAction func addImageButtonTapped(_ sender: UIButton) {
         let cameraViewController = CameraViewController(allowsLibraryAccess: false, allowsSwapCameraOrientation: false) { [weak self] (image, asset) in
             if image != nil {
+                if let strongSelf = self {
+                    strongSelf.hud.show(in: strongSelf.view)
+                }
                 self?.addImageStackView.isHidden = true
                 self?.scannedImageView.isHidden = false
                 self?.scannedImageView.image = image
+                self?.uploadImage(completion: { [weak self] url in
+                    guard let url = url else { return }
+                    BeerFromURLFetcher.getBeer(url: url, completion: { [weak self] beer in
+                        if let strongSelf = self {
+                            strongSelf.hud.dismiss()
+                        }
+                        guard let beer = beer else { return }
+                        print(beer)
+                        DispatchQueue.main.async {
+                            let nameCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DetailsTableViewCell
+                            let styleCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DetailsTableViewCell
+                            let catagoryCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! DetailsTableViewCell
+                            let descriptionCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! DetailsTableViewCell
+                            
+                            nameCell.searchField.text = beer.name
+                            styleCell.searchField.text = beer.style
+                            catagoryCell.searchField.text = beer.catagory
+                            descriptionCell.searchField.text = beer.description
+                            self?.detailsTableView.reloadData()
+                        }
+                        
+                    })
+                })
                 self?.dismiss(animated: true, completion: nil)
             }
         }
         
         present(cameraViewController, animated: true, completion: nil)
+    }
+    
+    func uploadImage(completion: @escaping (_ url: String?) -> Void) {
+        guard let image = scannedImageView.image else { return }
+        let imageID = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("\(imageID).jpg")
+        if let uploadData = image.jpegData(compressionQuality: 0.1) {
+            storageRef.putData(uploadData, metadata: nil) { (metadata, error) in
+                if error != nil {
+                    print(error ?? "error")
+                    completion(nil)
+                }
+                
+                storageRef.downloadURL(completion: { (url, err) in
+                    completion(url?.absoluteString)
+                })
+            }
+        }
     }
 }
 
@@ -131,21 +181,5 @@ extension NewBeerViewController: UITableViewDelegate, UITableViewDataSource {
             break
         }
         return cell
-    }
-    
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        guard let text = textField.text else { return }
-        
-        AutocompleteFetcher.getBeersFromNameQuery(text) { beers in
-            guard let beers = beers else { return }
-            
-            self.queriedBeers = beers
-            self.detailsTableView.reloadData()
-            
-            let cell = self.detailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DetailsTableViewCell
-            cell.searchField.becomeFirstResponder()
-        }
-        
-        print(text)
     }
 }

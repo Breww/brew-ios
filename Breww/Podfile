@@ -11,7 +11,9 @@ target 'Breww' do
   pod 'ALCameraViewController'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
   pod 'SearchTextField'
   pod 'SwiftyJSON', '~> 4.0'
+  pod 'JGProgressHUD'
   
 end
