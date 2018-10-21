@@ -62,6 +62,8 @@ class HomeViewController: UIViewController {
                     if let url = URL(string: urlString) {
                         let data = try? Data(contentsOf: url)
                         image = UIImage(data: data!)
+                    } else {
+                        image = UIImage(named: "logo_cropped")
                     }
                     self.recommendedBeers[i].primaryImage = image
                     if i <= 4 {
