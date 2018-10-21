@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         return topPickStackView.axis == .horizontal
     }
     
-    private var scannedBeers: [Beer] = [Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true), Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: false), Beer.init(name: "Stella Artois", style: "Lager", description: "jdln", primaryImage: UIImage(named: "logo")!, positiveRating: true)]
+    private var scannedBeers: [Beer] = []
     private var recommendedBeers: [Beer] = []
     
     override func viewDidLoad() {
@@ -88,7 +88,6 @@ class HomeViewController: UIViewController {
         UIView.animate(withDuration: 0.5, animations: {
             self.view.layoutIfNeeded()
         }) { _ in
-            self.topPicksViewExpandButton.titleLabel?.text = self.isHorizontalStack ? "More" : "Close"
             if !self.isHorizontalStack {
                 UIView.animate(withDuration: 0.3, animations: {
                     self.recommendedTableView.alpha = 1

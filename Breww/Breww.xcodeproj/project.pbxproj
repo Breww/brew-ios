@@ -14,6 +14,8 @@
 		271D8399217AC26600603DE6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271D8397217AC26600603DE6 /* LaunchScreen.storyboard */; };
 		271E186E217BA6E90034D519 /* BeerRowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E186D217BA6E90034D519 /* BeerRowTableViewCell.swift */; };
 		271E1870217BC0580034D519 /* NewBeerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271E186F217BC0580034D519 /* NewBeerViewController.swift */; };
+		2735EFAE217BEE870016BEAF /* DetailsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735EFAD217BEE870016BEAF /* DetailsTableViewCell.swift */; };
+		2735EFB0217BF5990016BEAF /* AutocompleteFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2735EFAF217BF5990016BEAF /* AutocompleteFetcher.swift */; };
 		2769A0C3217B764D0048CDC5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C2217B764D0048CDC5 /* HomeViewController.swift */; };
 		2769A0C5217B8E030048CDC5 /* BeerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */; };
 		2769A0C7217B8EF60048CDC5 /* Beer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2769A0C6217B8EF60048CDC5 /* Beer.swift */; };
@@ -36,6 +38,8 @@
 		271D839A217AC26600603DE6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		271E186D217BA6E90034D519 /* BeerRowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerRowTableViewCell.swift; sourceTree = "<group>"; };
 		271E186F217BC0580034D519 /* NewBeerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewBeerViewController.swift; sourceTree = "<group>"; };
+		2735EFAD217BEE870016BEAF /* DetailsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsTableViewCell.swift; sourceTree = "<group>"; };
+		2735EFAF217BF5990016BEAF /* AutocompleteFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutocompleteFetcher.swift; sourceTree = "<group>"; };
 		2769A0C2217B764D0048CDC5 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeerCollectionViewCell.swift; sourceTree = "<group>"; };
 		2769A0C6217B8EF60048CDC5 /* Beer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beer.swift; sourceTree = "<group>"; };
@@ -116,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				27E2C0C3217AED7300A073B9 /* Device.swift */,
+				2735EFAF217BF5990016BEAF /* AutocompleteFetcher.swift */,
 			);
 			path = Client;
 			sourceTree = "<group>";
@@ -148,6 +153,7 @@
 				2769A0C4217B8E030048CDC5 /* BeerCollectionViewCell.swift */,
 				271E186D217BA6E90034D519 /* BeerRowTableViewCell.swift */,
 				27E2C0C8217AFBF500A073B9 /* GradientView.swift */,
+				2735EFAD217BEE870016BEAF /* DetailsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -249,10 +255,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Breww/Pods-Breww-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ALCameraViewController/ALCameraViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlgoliaSearch-Client-Swift/AlgoliaSearch.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SearchTextField/SearchTextField.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
@@ -264,10 +273,13 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ALCameraViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlgoliaSearch.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SearchTextField.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
@@ -311,11 +323,13 @@
 				2769A0C5217B8E030048CDC5 /* BeerCollectionViewCell.swift in Sources */,
 				2769A0C7217B8EF60048CDC5 /* Beer.swift in Sources */,
 				27E2C0C9217AFBF500A073B9 /* GradientView.swift in Sources */,
+				2735EFAE217BEE870016BEAF /* DetailsTableViewCell.swift in Sources */,
 				271D838F217AC26500603DE6 /* AppDelegate.swift in Sources */,
 				27E2C0C4217AED7300A073B9 /* Device.swift in Sources */,
 				271E186E217BA6E90034D519 /* BeerRowTableViewCell.swift in Sources */,
 				2769A0C3217B764D0048CDC5 /* HomeViewController.swift in Sources */,
 				271E1870217BC0580034D519 /* NewBeerViewController.swift in Sources */,
+				2735EFB0217BF5990016BEAF /* AutocompleteFetcher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 
 struct Beer {
-    let name: String
-    let style: String
-    let description: String
-    let primaryImage: UIImage
-    let positiveRating: Bool
+    var name: String
+    var style: String
+    var catagory: String
+    var description: String?
+    var primaryImage: UIImage?
+    var positiveRating: Bool?
 }

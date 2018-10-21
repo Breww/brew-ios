@@ -20,7 +20,7 @@ class BeerCollectionViewCell: UICollectionViewCell {
         styleLabel.text = beer.style
         
         DispatchQueue.main.async {
-            if beer.positiveRating {
+            if beer.positiveRating ?? false {
                 self.ratingImage.tintColor = UIColor(named: "PositiveColor")
                 self.ratingImage.image = UIImage(named: "ThumbsUp")
             } else {

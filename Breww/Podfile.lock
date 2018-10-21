@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.3)
   - ALCameraViewController (3.0.3)
   - AlgoliaSearch-Client-Swift (5.1.7)
   - BoringSSL (10.0.6):
@@ -105,15 +106,21 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - Protobuf (3.6.1)
+  - SearchTextField (1.2.1)
+  - SwiftyJSON (4.1.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.7)
   - ALCameraViewController
   - AlgoliaSearch-Client-Swift
   - Firebase/Core
   - Firebase/Firestore
+  - SearchTextField
+  - SwiftyJSON (~> 4.0)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - ALCameraViewController
     - AlgoliaSearch-Client-Swift
     - BoringSSL
@@ -133,8 +140,11 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - Protobuf
+    - SearchTextField
+    - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   ALCameraViewController: 6398a9282057f709b87a1ecc52a83b48028ade64
   AlgoliaSearch-Client-Swift: 13f8abe012615ed3ccc35dc61ce0401a191be0ff
   BoringSSL: e10f92a27043805c01071fe815a5cd98ae8212e7
@@ -154,7 +164,9 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
+  SearchTextField: 261b0febd49194492f29555fff3c5c0019ca84d2
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
 
-PODFILE CHECKSUM: 8bb9d2bee9afca619c2e237c8f54f5dd708ce0a8
+PODFILE CHECKSUM: dbbbeb4c999654ee4f5851654d7153d4916deeff
 
 COCOAPODS: 1.5.3

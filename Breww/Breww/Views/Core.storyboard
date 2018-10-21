@@ -487,11 +487,81 @@
                                                             <constraint firstItem="Bgm-Yr-gP3" firstAttribute="top" secondItem="GXY-kN-bRh" secondAttribute="top" constant="8" id="hez-dB-ogw"/>
                                                         </constraints>
                                                     </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Bl-GE-QfY">
+                                                        <rect key="frame" x="0.0" y="290" width="375" height="350"/>
+                                                        <subviews>
+                                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ymQ-7G-VBF">
+                                                                <rect key="frame" x="0.0" y="40" width="375" height="310"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <prototypes>
+                                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="detailsCell" rowHeight="50" id="Ip4-xi-mlB" customClass="DetailsTableViewCell" customModule="Breww" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="28" width="375" height="50"/>
+                                                                        <autoresizingMask key="autoresizingMask"/>
+                                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Ip4-xi-mlB" id="fvL-JJ-1fY">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                                                            <autoresizingMask key="autoresizingMask"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5xU-qF-wGt">
+                                                                                    <rect key="frame" x="15" y="14.5" width="128" height="21"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Placeholder" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="knn-3q-lZD" customClass="SearchTextField" customModule="SearchTextField">
+                                                                                    <rect key="frame" x="147" y="10" width="220" height="30"/>
+                                                                                    <constraints>
+                                                                                        <constraint firstAttribute="width" constant="220" id="qoI-8x-iJZ"/>
+                                                                                    </constraints>
+                                                                                    <nil key="textColor"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                    <textInputTraits key="textInputTraits"/>
+                                                                                </textField>
+                                                                            </subviews>
+                                                                            <constraints>
+                                                                                <constraint firstItem="knn-3q-lZD" firstAttribute="centerY" secondItem="fvL-JJ-1fY" secondAttribute="centerY" id="1Ok-gG-1pG"/>
+                                                                                <constraint firstItem="5xU-qF-wGt" firstAttribute="centerY" secondItem="fvL-JJ-1fY" secondAttribute="centerY" id="3tf-08-WdO"/>
+                                                                                <constraint firstItem="5xU-qF-wGt" firstAttribute="leading" secondItem="fvL-JJ-1fY" secondAttribute="leadingMargin" id="Bnf-6M-ILG"/>
+                                                                                <constraint firstAttribute="trailing" secondItem="knn-3q-lZD" secondAttribute="trailing" constant="8" id="LLm-0A-Fj1"/>
+                                                                                <constraint firstItem="knn-3q-lZD" firstAttribute="leading" secondItem="5xU-qF-wGt" secondAttribute="trailing" constant="4" id="Y5x-Wj-095"/>
+                                                                            </constraints>
+                                                                        </tableViewCellContentView>
+                                                                        <connections>
+                                                                            <outlet property="nameLabel" destination="5xU-qF-wGt" id="3tc-ia-gKx"/>
+                                                                            <outlet property="searchField" destination="knn-3q-lZD" id="8DR-Ku-juJ"/>
+                                                                        </connections>
+                                                                    </tableViewCell>
+                                                                </prototypes>
+                                                                <sections/>
+                                                            </tableView>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlC-AQ-NN5">
+                                                                <rect key="frame" x="8" y="10" width="56" height="20"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="20" id="7Ch-cW-7BD"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="ymQ-7G-VBF" secondAttribute="trailing" id="59x-Tc-YJo"/>
+                                                            <constraint firstItem="TlC-AQ-NN5" firstAttribute="leading" secondItem="1Bl-GE-QfY" secondAttribute="leading" constant="8" id="Ijs-Em-PlK"/>
+                                                            <constraint firstItem="ymQ-7G-VBF" firstAttribute="top" secondItem="1Bl-GE-QfY" secondAttribute="top" constant="40" id="TIV-bh-9i7"/>
+                                                            <constraint firstAttribute="bottom" secondItem="ymQ-7G-VBF" secondAttribute="bottom" id="VFC-ew-XOc"/>
+                                                            <constraint firstItem="TlC-AQ-NN5" firstAttribute="top" secondItem="1Bl-GE-QfY" secondAttribute="top" constant="10" id="adX-vu-rwL"/>
+                                                            <constraint firstItem="ymQ-7G-VBF" firstAttribute="leading" secondItem="1Bl-GE-QfY" secondAttribute="leading" id="n9m-zZ-aU9"/>
+                                                        </constraints>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="bottom" secondItem="1Bl-GE-QfY" secondAttribute="bottom" id="7tV-ah-MvV"/>
                                                     <constraint firstItem="GXY-kN-bRh" firstAttribute="top" secondItem="Ged-GI-VZ5" secondAttribute="top" id="GHk-Hd-yzV"/>
                                                     <constraint firstItem="Ged-GI-VZ5" firstAttribute="trailing" secondItem="GXY-kN-bRh" secondAttribute="trailing" id="JwX-RZ-YZL"/>
+                                                    <constraint firstItem="Ged-GI-VZ5" firstAttribute="trailing" secondItem="1Bl-GE-QfY" secondAttribute="trailing" id="fqK-LP-VMK"/>
+                                                    <constraint firstItem="1Bl-GE-QfY" firstAttribute="leading" secondItem="Ged-GI-VZ5" secondAttribute="leading" id="noA-ph-fnq"/>
+                                                    <constraint firstItem="1Bl-GE-QfY" firstAttribute="top" secondItem="GXY-kN-bRh" secondAttribute="bottom" constant="10" id="qdJ-Xf-OTp"/>
                                                     <constraint firstAttribute="height" constant="640" id="xdt-3Y-VbO"/>
                                                     <constraint firstItem="GXY-kN-bRh" firstAttribute="leading" secondItem="Ged-GI-VZ5" secondAttribute="leading" id="zW0-FI-uha"/>
                                                 </constraints>
@@ -531,6 +601,7 @@
                     <connections>
                         <outlet property="addImageButton" destination="aDn-vv-dGl" id="IoT-sK-Rno"/>
                         <outlet property="addImageStackView" destination="dRo-wZ-0eR" id="Zai-v2-heT"/>
+                        <outlet property="detailsTableView" destination="ymQ-7G-VBF" id="pGz-Iw-swh"/>
                         <outlet property="imageContainerView" destination="GXY-kN-bRh" id="j2d-MP-5dX"/>
                         <outlet property="scannedImageView" destination="Bgm-Yr-gP3" id="VZt-vA-H85"/>
                     </connections>

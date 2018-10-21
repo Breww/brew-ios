@@ -6,9 +6,12 @@ target 'Breww' do
   use_frameworks!
 
   # Pods for Breww
+  pod 'Alamofire', '~> 4.7'
   pod 'AlgoliaSearch-Client-Swift'
+  pod 'ALCameraViewController'
   pod 'Firebase/Core'
   pod 'Firebase/Firestore'
-  pod 'ALCameraViewController'
+  pod 'SearchTextField'
+  pod 'SwiftyJSON', '~> 4.0'
   
 end
