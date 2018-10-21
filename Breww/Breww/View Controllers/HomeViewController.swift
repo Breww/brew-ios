@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FirebaseFirestore
+import SwiftyJSON
 
 class CustomButton: UIButton {
     override var intrinsicContentSize: CGSize {
@@ -49,11 +51,59 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-//        UserRecommendationsFetcher.getUserRecommendations { beers in
-//            guard let beers = beers else { return }
-//            
-//            
-//        }
+        UserRecommendationsFetcher.getUserRecommendations { (beers) in
+            guard let beers = beers else { return }
+            self.recommendedBeers = beers
+            for (i, beer) in self.recommendedBeers.enumerated() {
+                UserRecommendationsFetcher.imageFromBrand(brand: beer.name, completion: { (urlString) in
+                    var image: UIImage?
+                    guard let urlString = urlString else { return }
+                    print(urlString)
+                    if let url = URL(string: urlString) {
+                        let data = try? Data(contentsOf: url)
+                        image = UIImage(data: data!)
+                    }
+                    self.recommendedBeers[i].primaryImage = image
+                    if i <= 4 {
+                        DispatchQueue.main.async {
+                            let button = (self.topPickStackView.arrangedSubviews[i] as! UIButton)
+                            button.setImage(image, for: .normal)
+                        }
+                    }
+                    self.recommendedTableView.reloadData()
+                })
+            }
+        }
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Device.id())
+        docRef.getDocument { (doc, err) in
+            if let document = doc, document.exists {
+                if let beersData = document.data()?["beers"] as? [[String: Any]] {
+                    var newBeers: [Beer] = []
+                    for beerData in beersData {
+                        var image: UIImage?
+                        if let imageURL = beerData["imgURL"] as? String, !imageURL.isEmpty, let url = URL(string: imageURL) {
+                            let data = try? Data(contentsOf: url)
+                            image = UIImage(data: data!)
+                        }
+                        let beer = Beer.init(
+                            name: beerData["name"] as! String,
+                            style: beerData["style"] as! String,
+                            catagory: beerData["category"] as! String,
+                            description: beerData["description"] as! String,
+                            primaryImage: image,
+                            positiveRating: (beerData["rating"] as! Int) == 0 ? false : true
+                        )
+                        newBeers.append(beer)
+                    }
+                    self.scannedBeers = newBeers
+                    self.catalogueCollectionView.reloadData()
+                }
+            } else {
+                print("Document does not exist")
+            }
+        }
     }
     
     private func setupViewElements() {
@@ -115,6 +165,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             collectionView.emptyMessageView(message: "No beers scanned! Try adding one from the button on the top right of this view.")
             return 0
         }
+        collectionView.restore()
         return scannedBeers.count
     }
     
@@ -136,12 +187,12 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return recommendedBeers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "beerRowCell", for: indexPath) as! BeerRowTableViewCell
-        cell.formatCell()
+        cell.formatCell(forBeer: recommendedBeers[indexPath.row])
         return cell
     }
 }

@@ -14,7 +14,11 @@ class BeerRowTableViewCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var styleLabel: UILabel!
     
-    func formatCell(/*forBeer beer: Beer*/) {
+    func formatCell(forBeer beer: Beer) {
         accessoryType = .disclosureIndicator
+        
+        beerImageView.image = beer.primaryImage
+        nameLabel.text = beer.name
+        styleLabel.text = beer.style
     }
 }

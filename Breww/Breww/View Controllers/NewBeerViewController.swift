@@ -10,6 +10,7 @@ import UIKit
 import ALCameraViewController
 import SearchTextField
 import FirebaseStorage
+import FirebaseFirestore
 import JGProgressHUD
 
 class NewBeerViewController: UIViewController {
@@ -19,8 +20,25 @@ class NewBeerViewController: UIViewController {
     @IBOutlet weak var scannedImageView: UIImageView!
     @IBOutlet weak var addImageStackView: UIStackView!
     @IBOutlet weak var detailsTableView: UITableView!
+    @IBOutlet weak var thumbsDownButton: UIButton!
+    @IBOutlet weak var thumbsUpButton: UIButton!
     
+    var nameCell: DetailsTableViewCell {
+        return detailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DetailsTableViewCell
+    }
+    var styleCell: DetailsTableViewCell {
+        return detailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DetailsTableViewCell
+    }
+    var catagoryCell: DetailsTableViewCell {
+        return detailsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! DetailsTableViewCell
+    }
+    var descriptionCell: DetailsTableViewCell {
+        return detailsTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! DetailsTableViewCell
+    }
+
     var queriedBeers: [Beer] = []
+    var imageURL: String?
+    var selectedPositiveRating: Bool?
     
     let hud = JGProgressHUD(style: .dark)
     
@@ -69,9 +87,49 @@ class NewBeerViewController: UIViewController {
         imageContainerView.layer.shadowColor = UIColor.black.cgColor
     }
     
-    @IBAction func saveButtonTapped(_ sender: UIButton) {
+    @IBAction func dismissButtonTapped(_ sender: UIButton) {
         dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func saveButtonTapped(_ sender: UIButton) {
+        let beer = Beer(
+            name: nameCell.searchField.text ?? "Unknown",
+            style: styleCell.searchField.text ?? "Unknown",
+            catagory: catagoryCell.searchField.text ?? "Unknown",
+            description: descriptionCell.searchField.text,
+            primaryImage: scannedImageView.image,
+            positiveRating: selectedPositiveRating ?? true
+        )
+        
+        let beerData = ["name": beer.name, "style": beer.style, "category": beer.catagory, "description": beer.description ?? "Unknown", "rating": beer.positiveRating! ? 1: 0, "imgURL": imageURL ?? ""] as [String : Any]
+        
+        let db = Firestore.firestore()
+        let docRef = db.collection("users").document(Device.id())
+        docRef.getDocument { (doc, err) in
+            if let document = doc, document.exists {
+                docRef.updateData(["beers" : FieldValue.arrayUnion([beerData])], completion: { (err) in
+                    self.dismiss(animated: true, completion: nil)
+                })
+            } else {
+                docRef.setData(["beers": [beerData]], completion: { _ in
+                    self.dismiss(animated: true, completion: nil)
+                })
+            }
+        }
+    }
+    
+    @IBAction func ratingButtonTapped(_ sender: UIButton) {
+        if sender.tag == 0 {
+            sender.tintColor = UIColor(named: "RightGradient")
+            thumbsUpButton.tintColor = .black
+            selectedPositiveRating = false
+        } else {
+            sender.tintColor = UIColor(named: "PositiveColor")
+            thumbsDownButton.tintColor = .black
+            selectedPositiveRating = true
+        }
+    }
+    
     
     @IBAction func addImageButtonTapped(_ sender: UIButton) {
         let cameraViewController = CameraViewController(allowsLibraryAccess: false, allowsSwapCameraOrientation: false) { [weak self] (image, asset) in
@@ -84,6 +142,7 @@ class NewBeerViewController: UIViewController {
                 self?.scannedImageView.image = image
                 self?.uploadImage(completion: { [weak self] url in
                     guard let url = url else { return }
+                    self?.imageURL = url
                     BeerFromURLFetcher.getBeer(url: url, completion: { [weak self] beer in
                         if let strongSelf = self {
                             strongSelf.hud.dismiss()
@@ -91,15 +150,10 @@ class NewBeerViewController: UIViewController {
                         guard let beer = beer else { return }
                         print(beer)
                         DispatchQueue.main.async {
-                            let nameCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! DetailsTableViewCell
-                            let styleCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DetailsTableViewCell
-                            let catagoryCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! DetailsTableViewCell
-                            let descriptionCell = self?.detailsTableView.cellForRow(at: IndexPath(row: 3, section: 0)) as! DetailsTableViewCell
-                            
-                            nameCell.searchField.text = beer.name
-                            styleCell.searchField.text = beer.style
-                            catagoryCell.searchField.text = beer.catagory
-                            descriptionCell.searchField.text = beer.description
+                            self?.nameCell.searchField.text = beer.name
+                            self?.styleCell.searchField.text = beer.style
+                            self?.catagoryCell.searchField.text = beer.catagory
+                            self?.descriptionCell.searchField.text = beer.description
                             self?.detailsTableView.reloadData()
                         }
                         
@@ -159,11 +213,9 @@ extension NewBeerViewController: UITableViewDelegate, UITableViewDataSource {
                 guard let `self` = self else { return }
                 DispatchQueue.main.async {
                     let selectedBeer = self.queriedBeers[itemPosition]
-                    let styleCell = self.detailsTableView.cellForRow(at: IndexPath(row: 1, section: 0)) as! DetailsTableViewCell
-                    let catagoryCell = self.detailsTableView.cellForRow(at: IndexPath(row: 2, section: 0)) as! DetailsTableViewCell
                     cell.searchField.text = selectedBeer.name
-                    styleCell.searchField.text = selectedBeer.style
-                    catagoryCell.searchField.text = selectedBeer.catagory
+                    self.styleCell.searchField.text = selectedBeer.style
+                    self.catagoryCell.searchField.text = selectedBeer.catagory
                 }
                 
             }
